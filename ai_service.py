@@ -30,3 +30,4 @@ def analyze_resume(text: str) -> dict:
         ],
         "score": min(60 + len(skills) * 10, 100)
     }
+
