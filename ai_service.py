@@ -1,18 +1,19 @@
 def analyze_resume(text: str) -> dict:
     text = text.lower()
 
-    skills = []
-    if "python" in text:
-        skills.append("Python")
-    if "fastapi" in text:
-        skills.append("FastAPI")
-    if "mysql" in text:
-        skills.append("MySQL")
-    if "flutter" in text:
-        skills.append("Flutter")
+    skills_map = {
+        "python": "Python",
+        "fastapi": "FastAPI",
+        "mysql": "MySQL",
+        "flutter": "Flutter",
+        "docker": "Docker",
+        "aws": "AWS"
+    }
+
+    skills = [value for key, value in skills_map.items() if key in text]
 
     return {
-        "summary": "Backend developer resume analyzed successfully",
+        "summary": "Resume analyzed successfully",
         "skills_found": skills,
         "strengths": [
             "API development",
@@ -30,4 +31,3 @@ def analyze_resume(text: str) -> dict:
         ],
         "score": min(60 + len(skills) * 10, 100)
     }
-
